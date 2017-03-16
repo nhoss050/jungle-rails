@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     put    :add_item
     delete :remove_item
   end
+  resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
+
 
   resources :orders, only: [:create, :show]
 
