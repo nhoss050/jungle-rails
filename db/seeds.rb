@@ -124,12 +124,47 @@ cat3.products.create!({
   price: 987.65
 })
 
-cat3.products.create!({
-  name:  'Red Bookshelf',
+
+cat1.products.create!({
+  name:  'Women\'s Zebra pants',
   description: Faker::Hipster.paragraph(4),
-  image: open_asset('furniture3.jpg'),
-  quantity: 23,
-  price: 2_483.75
+  image: open_asset('apparel2.jpg'),
+  quantity: 18,
+  price: 124.99
+})
+
+prod1 = Product.find(1);
+prod2 = Product.find(2);
+prod3 = Product.find(3);
+prod4 = Product.find(4);
+
+prod2.reviews.create!({
+  user_id: 1,
+  description: "Amazing",
+  rating: 5
+})
+
+prod2.reviews.create!({
+  user_id: 2,
+  description: "not intresting!",
+  rating: 2
+})
+prod3.reviews.create!({
+  user_id: 3,
+  description: "could be better",
+  rating: 3
+})
+
+prod3.reviews.create!({
+  user_id: 5,
+  description: "hahahaha!",
+  rating: 4
+})
+
+prod4.reviews.create!({
+  user_id: 5,
+  description: "good one!",
+  rating: 4
 })
 
 

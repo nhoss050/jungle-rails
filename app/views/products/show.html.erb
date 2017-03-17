@@ -24,8 +24,22 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
+
     </div>
 
+    <div class="panel-body">
+     <%= form_for @review, url: "/products/#{@product.id}/reviews" do |f| %>
+      <%= f.select :rating, (0..5) %>
+      <%= f.text_area :description %>
+      <%= f.submit "submit" %>
+    <% end %>
+    </div>
+    <div class="panel-body">
+    <h2> Customer Reviews </h2>
+      <% @product.reviews.order(:created_at).reverse_order.each do |rev| %>
+         <%= render 'review', rev: rev %>
+      <% end %>
+    </div>
   </article>
 
 </section>

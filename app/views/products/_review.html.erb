@@ -1,0 +1,15 @@
+
+<div class="col-sm-8">
+        <dl class="dl-horizontal">
+          <dt>user</dt>
+          <dd><%= rev.user_id %></dd>
+          <dt>user</dt>
+          <dd><%= rev.created_at %></dd>
+          <dt>Description</dt>
+          <dd><%= rev.description %></dd>
+          <dt>rating</dt>
+          <dd>     <% rev.rating.times do %>
+       <i class="fa fa-star" aria-hidden="true" style="color: #f4c542 ;"></i>
+     <% end %></dd>
+        </dl>
+      </div>
