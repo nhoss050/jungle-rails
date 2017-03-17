@@ -53,7 +53,11 @@ class OrdersController < ApplicationController
       end
     end
     order.save!
+
+    OrderMailer.send_order_email(order, current_user).deliver_now
+
     order
+
   end
 
   # returns total in cents not dollars (stripe uses cents as well)

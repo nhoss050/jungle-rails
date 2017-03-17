@@ -2,11 +2,11 @@
 
   <header class="page-header">
     <h1>Order #<%= @order.id %></h1>
-    <h2>email: <%= @order.email %></h2>
+    <h2>email: <%= current_user.email %></h2>
   </header>
 
   <div class="order-summary jumbotron">
-       <table class="table table-bordered">
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th colspan="2">Product</th>
@@ -16,12 +16,8 @@
         </tr>
       </thead>
       <tbody>
-
         <% @order.line_items.each do |item| %>
-
-
-           <%= render 'item', product_id: item.product_id, quantity: item.quantity %>
-
+          <%= render 'item', product_id: item.product_id, quantity: item.quantity %>
         <% end %>
       </tbody>
        <tfoot>
@@ -34,16 +30,7 @@
           </th>
         </tr>
       </tfoot>
-
-
-
-
-
-      </table>
-
+    </table>
   </div>
-
-
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
-
 </section>
