@@ -1,3 +1,16 @@
+<% sum = 0 %>
+<% number = 0 %>
+<% reviews = Review.where(product_id: product.id) %>
+<% reviews.each do |rev| %>
+<% sum += rev.rating%>
+<% number += 1%>
+<% end %>
+<% if number != 0 %>
+<% rating_average = sum/number %>
+<% end %>
+
+
+
 <article class="product">
   <header>
     <%= link_to product do %>
@@ -8,6 +21,14 @@
   <p class="description">
     <%= product.description %>
   </p>
+  <p class="description">
+    <% if rating_average %>
+      <% rating_average.times do %>
+        <i class="fa fa-star" aria-hidden="true" style="color: #f4c542 ;"></i>
+      <% end %>
+    <% end %>
+  </p>
+
   <footer class="actions">
     <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
       <%= fa_icon "shopping-cart", text: 'Add' %>

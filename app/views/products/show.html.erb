@@ -25,20 +25,33 @@
         </dl>
       </div>
 
-    </div>
+   </div>
 
-    <div class="panel-body">
-     <%= form_for @review, url: "/products/#{@product.id}/reviews" do |f| %>
-      <%= f.select :rating, (0..5) %>
-      <%= f.text_area :description %>
-      <%= f.submit "submit" %>
-    <% end %>
-    </div>
-    <div class="panel-body">
-    <h2> Customer Reviews </h2>
-      <% @product.reviews.order(:created_at).reverse_order.each do |rev| %>
-         <%= render 'review', rev: rev %>
+   <div class="row panel-body">
+      <% if current_user %>
+        <div class="col-sm-3 col-sm-offset-1">
+          <!-- <form class="form-horizontal center" role="form"> -->
+            <%= form_for @review, url: "/products/#{@product.id}/reviews", html: { class: "form" } do |f| %>
+              <div class="field">
+              <%= f.select :rating, (0..5) %>
+              </div>
+              <div class="field">
+              <%= f.text_area :description %>
+              </div>
+              <div class="field">
+              <%= f.submit "submit" %>
+              </div>
+            <% end %>
+          <!-- </form> -->
+        </div>
       <% end %>
+
+      <div class="col-sm-8">
+      <h2> Customer Reviews </h2>
+        <% @product.reviews.order(:created_at).reverse_order.each do |rev| %>
+          <%= render 'review', rev: rev %>
+        <% end %>
+      </div>
     </div>
   </article>
 

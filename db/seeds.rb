@@ -138,6 +138,9 @@ prod2 = Product.find(2);
 prod3 = Product.find(3);
 prod4 = Product.find(4);
 
+
+
+
 prod2.reviews.create!({
   user_id: 1,
   description: "Amazing",

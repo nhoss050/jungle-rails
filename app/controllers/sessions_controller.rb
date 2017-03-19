@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
   def new
-
   end
 
   def create
@@ -13,8 +12,6 @@ class SessionsController < ApplicationController
     else
       redirect_to 'sessions/new'
     end
-
-
   end
 
   def destroy
