@@ -7,8 +7,12 @@
 <% end %>
 <% if number != 0 %>
   <% rating_average = sum/number %>
-<% end %>
 
+
+ <% rating_average_float = sum/number.to_f %>
+ <%rating_array = rating_average_float.divmod 1 %>
+
+<% end %>
 
 
 <article class="product">
@@ -23,8 +27,12 @@
   </p>
   <p class="description">
     <% if rating_average %>
-      <% rating_average.times do %>
-        <i class="fa fa-star" aria-hidden="true" style="color: #f4c542 ;"></i>
+      <% rating_array[0].times do %>
+        <i class="fa fa-star" aria-hidden="true" style="color: #f4c542 ;">
+        </i>
+      <% end %>
+      <% if rating_array[1] != 0 %>
+        <i class="fa fa-star-half" aria-hidden="true" style="color: #f4c542 ;"> </i>
       <% end %>
     <% end %>
   </p>
