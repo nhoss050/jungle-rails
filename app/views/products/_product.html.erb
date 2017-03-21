@@ -2,11 +2,11 @@
 <% number = 0 %>
 <% reviews = Review.where(product_id: product.id) %>
 <% reviews.each do |rev| %>
-<% sum += rev.rating%>
-<% number += 1%>
+  <% sum += rev.rating%>
+  <% number += 1%>
 <% end %>
 <% if number != 0 %>
-<% rating_average = sum/number %>
+  <% rating_average = sum/number %>
 <% end %>
 
 

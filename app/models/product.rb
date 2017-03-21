@@ -10,4 +10,10 @@ class Product < ActiveRecord::Base
   validates :quantity, presence: true
   validates :category, presence: true
 
+  # validate :life_is_bad
+
+  # def life_is_bad
+  #   false
+  # end
+
 end
