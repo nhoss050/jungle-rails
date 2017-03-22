@@ -53,9 +53,9 @@ class OrdersController < ApplicationController
       end
     end
     order.save!
-
-    OrderMailer.send_order_email(order, current_user).deliver_now
-
+    if current_user
+      OrderMailer.send_order_email(order, current_user).deliver_now
+    end
     order
 
   end

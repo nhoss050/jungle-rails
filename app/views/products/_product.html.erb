@@ -50,7 +50,7 @@
     <%= humanized_money_with_symbol product.price %>
   </aside>
 
-  <% if product.quantity == 0 %>
+  <% if product.stock? %>
     <aside class="sold_out">
        SOLD OUT !
     </aside>

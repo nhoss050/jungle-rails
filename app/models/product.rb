@@ -16,4 +16,9 @@ class Product < ActiveRecord::Base
   #   false
   # end
 
+def stock?
+  self.quantity == 0
+end
+
+
 end
